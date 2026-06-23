@@ -60,7 +60,7 @@ function Hero() {
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Button href="/contact" withArrow>
-            Request a Free Quote
+            Request a Quote
           </Button>
           <Button href={telHref(primary.number)} variant="outline">
             <PhoneIcon className="h-4 w-4" />
@@ -289,12 +289,12 @@ function CallToAction() {
           Ready to move your home?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-forest-100">
-          Get a free quote, or call the line for your state. We&apos;ll walk the
+          Get a quote, or call the line for your state. We&apos;ll walk the
           route and tell you exactly what it takes.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/contact" withArrow>
-            Request a Free Quote
+            Request a Quote
           </Button>
           {site.phones.map((phone) => (
             <Button key={phone.label} href={telHref(phone.number)} variant="outline">
