@@ -28,11 +28,18 @@ export const site = {
     { name: "Luke", role: "Owner & Operator", photo: "/photos/team-2.jpg" },
   ],
   inspectionFee: 750,
+  // Google reviews. Paste the Featurable widget id below once created
+  // (https://featurable.com → free signup → add this business → create widget).
+  // While it's empty, the site shows real review excerpts + Google buttons.
+  googleReviewsWidgetId: "",
+  googleReviewUrl:
+    "https://www.google.com/maps/place/Mountain+Movers+Mobile+Homes/@35.7942184,-84.5824526,8z/data=!3m1!4b1!4m5!3m4!1s0x885bc37a4a0b140b:0x3a450507dbcbb210!8m2!3d35.7994229!4d-83.4612765",
   social: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/tnmobilehomemovers/",
     instagram: "#",
     youtube: "#",
-    google: "#",
+    google:
+      "https://www.google.com/maps/place/Mountain+Movers+Mobile+Homes/@35.7942184,-84.5824526,8z/data=!3m1!4b1!4m5!3m4!1s0x885bc37a4a0b140b:0x3a450507dbcbb210!8m2!3d35.7994229!4d-83.4612765",
   },
 } as const;
 

@@ -1,12 +1,12 @@
 import { site, telHref } from "./site";
 import { Container, SectionHeading, Button } from "./components/ui";
+import { GoogleReviews } from "./components/GoogleReviews";
 import {
   PhoneIcon,
   ShieldIcon,
   MapPinIcon,
   TruckIcon,
   CheckIcon,
-  Stars,
 } from "./components/icons";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <WhyUs />
       <ServiceArea />
       <ProcessTeaser />
-      <Reviews />
+      <GoogleReviews />
       <CallToAction />
     </>
   );
@@ -265,54 +265,6 @@ function ProcessTeaser() {
           <Button href="/process" withArrow>
             See the full moving & setup process
           </Button>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-/* --------------------------------------------------------------- Reviews */
-
-function Reviews() {
-  const reviews = [
-    {
-      quote:
-        "They moved our double-wide up a mountain road I didn't think a truck could fit on. Professional the whole way.",
-      name: "Placeholder Customer",
-      where: "Cocke County, TN",
-    },
-    {
-      quote:
-        "Handled every permit, graded the pad, and set the home level on the first try. Fair price and no surprises.",
-      name: "Placeholder Customer",
-      where: "Madison County, NC",
-    },
-    {
-      quote:
-        "Walked the site first and told me exactly what it would take. Honest folks who know what they're doing.",
-      name: "Placeholder Customer",
-      where: "Greene County, TN",
-    },
-  ];
-  return (
-    <section className="py-20">
-      <Container>
-        <SectionHeading
-          eyebrow="Reviews"
-          title="Trusted with homes across the mountains"
-          subtitle="Replace these with real Google and Facebook reviews before launch."
-        />
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {reviews.map((review, i) => (
-            <figure key={i} className="flex flex-col rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
-              <Stars className="text-action" />
-              <blockquote className="mt-4 flex-1 text-stone-700">“{review.quote}”</blockquote>
-              <figcaption className="mt-5 border-t border-stone-100 pt-4">
-                <span className="block text-sm font-bold text-stone-900">{review.name}</span>
-                <span className="block text-sm text-stone-500">{review.where}</span>
-              </figcaption>
-            </figure>
-          ))}
         </div>
       </Container>
     </section>
