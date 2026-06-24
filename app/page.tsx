@@ -30,16 +30,24 @@ function Hero() {
   const primary = site.phones[0];
   return (
     <section className="relative overflow-hidden bg-forest-900 text-white">
-      <video
+      {/* Poster image shown until the video loads (and as a fallback). */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/photos/hero-cliff-sunset.jpg"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/photos/hero-cliff-sunset.jpg"
-      >
-        <source src="/hero.mp4" type="video/mp4" />
-      </video>
+      />
+      <div className="absolute inset-0 overflow-hidden">
+        <iframe
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
+          src={`https://www.youtube-nocookie.com/embed/${site.heroYouTubeId}?autoplay=1&mute=1&loop=1&playlist=${site.heroYouTubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
+          title="Mountain Movers moving a home"
+          tabIndex={-1}
+          aria-hidden="true"
+          allow="autoplay; encrypted-media"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/80 to-forest-900/55" />
 
       <Container className="relative py-24 sm:py-32 lg:py-40">
