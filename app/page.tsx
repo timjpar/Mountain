@@ -54,12 +54,12 @@ function Hero() {
       <div className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-action/20 blur-[120px]" />
 
       <Container className="relative py-16 sm:py-20">
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-forest-100 backdrop-blur">
+        <p className="eyebrow-tab mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-xs text-forest-50 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-action" />
           Family-owned · Based in {site.base}
         </p>
 
-        <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-shadow-hero sm:text-5xl lg:text-6xl">
+        <h1 className="font-display max-w-4xl text-5xl font-bold uppercase leading-[0.9] tracking-tight text-shadow-hero sm:text-6xl lg:text-7xl">
           We move your home,
           <span className="text-action"> the safe way.</span>
         </h1>
@@ -86,7 +86,7 @@ function Hero() {
             { stat: "100%", label: "Licensed & Insured" },
           ].map((item) => (
             <div key={item.label}>
-              <dt className="text-3xl font-extrabold text-action">{item.stat}</dt>
+              <dt className="font-display text-4xl font-bold text-action">{item.stat}</dt>
               <dd className="mt-1 text-sm text-forest-100">{item.label}</dd>
             </div>
           ))}

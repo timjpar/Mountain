@@ -31,11 +31,11 @@ export function SectionHeading({
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow && (
-        <p className={`text-sm font-bold uppercase tracking-wider ${dark ? "text-action" : "text-forest-600"}`}>
+        <span className="eyebrow-tab inline-block bg-action px-2.5 py-1 text-xs text-forest-950">
           {eyebrow}
-        </p>
+        </span>
       )}
-      <h2 className={`mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl ${dark ? "text-white" : "text-stone-900"}`}>
+      <h2 className={`font-display mt-4 text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-5xl ${dark ? "text-white" : "text-stone-900"}`}>
         {title}
       </h2>
       {subtitle && (
@@ -71,7 +71,7 @@ export function Button({
   className = "",
   withArrow = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-base font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonStyles[variant]} ${className}`;
+  const classes = `font-display inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-semibold uppercase tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonStyles[variant]} ${className}`;
   const isInternal = href.startsWith("/");
   const content = (
     <>
