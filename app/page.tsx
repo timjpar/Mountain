@@ -29,7 +29,7 @@ export default function Home() {
 function Hero() {
   const primary = site.phones[0];
   return (
-    <section className="relative overflow-hidden bg-forest-900 text-white">
+    <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-forest-950 text-white">
       {/* Poster image shown until the video loads (and as a fallback). */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -48,20 +48,23 @@ function Hero() {
           allow="autoplay; encrypted-media"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/80 to-forest-900/55" />
+      {/* Diagonal scrim: dark behind the text, clearing toward the lower-right so the video shows. */}
+      <div className="absolute inset-0 bg-gradient-to-br from-forest-950/88 via-forest-950/45 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-forest-950/90 to-transparent" />
+      <div className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-action/20 blur-[120px]" />
 
-      <Container className="relative py-24 sm:py-32 lg:py-40">
+      <Container className="relative py-16 sm:py-20">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-forest-100 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-action" />
           Family-owned · Based in {site.base}
         </p>
 
-        <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight drop-shadow sm:text-5xl lg:text-6xl">
+        <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-shadow-hero sm:text-5xl lg:text-6xl">
           We move your home,
           <span className="text-action"> the safe way.</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50 drop-shadow">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50 text-shadow-hero">
           {site.tagline} Licensed, bonded, and insured transport, grading, and
           setup across six states.
         </p>
@@ -97,19 +100,22 @@ function Hero() {
 
 function TrustBar() {
   return (
-    <section className="border-b border-stone-200 bg-stone-50">
-      <Container className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5">
+    <section className="border-b border-stone-200/70 bg-cream">
+      <Container className="flex flex-wrap items-center justify-center gap-3 py-6">
         <span className="text-sm font-semibold uppercase tracking-wider text-stone-500">
           Fully credentialed
         </span>
         {site.credentials.map((c) => (
-          <span key={c} className="inline-flex items-center gap-2 text-base font-bold text-forest-800">
-            <ShieldIcon className="h-5 w-5 text-forest-600" />
+          <span
+            key={c}
+            className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm"
+          >
+            <ShieldIcon className="h-5 w-5 text-action" />
             {c}
           </span>
         ))}
-        <span className="inline-flex items-center gap-2 text-base font-bold text-forest-800">
-          <MapPinIcon className="h-5 w-5 text-forest-600" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm">
+          <MapPinIcon className="h-5 w-5 text-action" />
           {site.base}
         </span>
       </Container>
@@ -139,7 +145,7 @@ function Services() {
   ];
 
   return (
-    <section className="py-20">
+    <section className="bg-cream bg-topo py-20">
       <Container>
         <SectionHeading
           eyebrow="What we do"
@@ -150,10 +156,11 @@ function Services() {
           {services.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="group rounded-xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-forest-600/40 hover:shadow-md"
+              className="group relative overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm ring-1 ring-black/[0.03] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-forest-600/20"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-forest-50 text-forest-700 transition-colors group-hover:bg-forest-700 group-hover:text-white">
-                <Icon className="h-6 w-6" />
+              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-forest-600 to-action opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-forest-600 to-forest-800 text-white shadow-md shadow-forest-900/20">
+                <Icon className="h-7 w-7" />
               </div>
               <h3 className="mt-5 text-lg font-bold text-stone-900">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-stone-600">{body}</p>
@@ -175,17 +182,26 @@ function WhyUs() {
     "We handle moving permits and setup inspections for you.",
   ];
   return (
-    <section className="bg-stone-50 py-20">
+    <section className="bg-white py-20">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl shadow-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/photos/hero-cliff-sunset.jpg"
-              alt="Mountain Movers maneuvering a home along a mountain road at sunset"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/photos/hero-cliff-sunset.jpg"
+                alt="Mountain Movers maneuvering a home along a mountain road at sunset"
+                className="aspect-[4/3] h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 shadow-lg">
+              <ShieldIcon className="h-8 w-8 text-action" />
+              <span className="text-sm font-bold leading-tight text-forest-800">
+                Licensed, Bonded
+                <br />& Insured
+              </span>
+            </div>
           </div>
           <div>
             <SectionHeading
@@ -218,7 +234,7 @@ function WhyUs() {
 
 function ServiceArea() {
   return (
-    <section className="py-20">
+    <section className="bg-cream bg-topo py-20">
       <Container>
         <SectionHeading
           eyebrow="Service area"
@@ -229,9 +245,9 @@ function ServiceArea() {
           {site.states.map((state) => (
             <span
               key={state}
-              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-semibold text-forest-800 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-5 py-2.5 text-sm font-semibold text-forest-800 shadow-sm transition-colors hover:border-forest-600/40 hover:text-forest-700"
             >
-              <MapPinIcon className="h-4 w-4 text-forest-600" />
+              <MapPinIcon className="h-4 w-4 text-action" />
               {state}
             </span>
           ))}
@@ -252,7 +268,7 @@ function ProcessTeaser() {
     { n: "E", t: "Setup & Tie-Down", d: "Set on block, leveled, anchored, and ready for inspection." },
   ];
   return (
-    <section className="bg-forest-900 py-20 text-white">
+    <section className="bg-forest-900 bg-topo-dark py-20 text-white">
       <Container>
         <SectionHeading
           dark

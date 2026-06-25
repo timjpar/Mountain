@@ -39,7 +39,7 @@ export function GoogleReviews() {
   }, [widgetId]);
 
   return (
-    <section className="py-20">
+    <section className="bg-cream bg-topo py-20">
       <Container>
         <SectionHeading
           eyebrow="Reviews"
