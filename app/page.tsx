@@ -29,7 +29,7 @@ export default function Home() {
 function Hero() {
   const primary = site.phones[0];
   return (
-    <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-forest-950 text-white">
+    <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden bg-forest-950 text-white sm:items-center">
       {/* Poster image shown until the video loads (and as a fallback). */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -48,23 +48,23 @@ function Hero() {
           allow="autoplay; encrypted-media"
         />
       </div>
-      {/* Diagonal scrim: dark behind the text, clearing toward the lower-right so the video shows. */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-950/88 via-forest-950/45 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-forest-950/90 to-transparent" />
-      <div className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-action/20 blur-[120px]" />
+      {/* Bottom-anchored scrim keeps the top of the video clear — important on mobile. */}
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-forest-950 via-forest-950/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute -left-24 bottom-1/3 h-80 w-80 rounded-full bg-action/20 blur-[120px]" />
 
-      <Container className="relative py-16 sm:py-20">
+      <Container className="relative w-full pb-16 pt-28 sm:py-24">
         <p className="eyebrow-tab mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-xs text-forest-50 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-action" />
           Family-owned · Based in {site.base}
         </p>
 
-        <h1 className="font-display max-w-4xl text-5xl font-bold uppercase leading-[0.9] tracking-tight text-shadow-hero sm:text-6xl lg:text-7xl">
+        <h1 className="font-display max-w-4xl text-4xl font-bold uppercase leading-[0.92] tracking-tight text-shadow-hero sm:text-6xl lg:text-7xl">
           We move your home,
           <span className="text-action"> the safe way.</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-forest-50 text-shadow-hero">
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-forest-50 text-shadow-hero sm:mt-6 sm:text-lg">
           {site.tagline} Licensed, bonded, and insured transport, grading, and
           setup across six states.
         </p>
@@ -79,7 +79,7 @@ function Hero() {
           </Button>
         </div>
 
-        <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
+        <dl className="mt-12 hidden max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8 sm:grid">
           {[
             { stat: "6", label: "States Served" },
             { stat: "200mi", label: "Typical Reach" },
