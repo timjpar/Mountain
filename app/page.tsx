@@ -33,14 +33,7 @@ function Hero() {
   const primary = site.phones[0];
   return (
     <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden bg-forest-950 text-white sm:items-center">
-      {/* Poster image shown until the video loads (and as a fallback). */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/photos/hero-cliff-sunset.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* Self-hosted background video, looped to the moving footage only. */}
       <HeroVideo />
       {/* Bottom-anchored scrim keeps the top of the video clear — important on mobile. */}
       <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-forest-950 via-forest-950/60 to-transparent" />
