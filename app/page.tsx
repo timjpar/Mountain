@@ -1,6 +1,7 @@
 import { site, telHref } from "./site";
 import { Container, SectionHeading, Button } from "./components/ui";
 import { GoogleReviews } from "./components/GoogleReviews";
+import { HeroVideo } from "./components/HeroVideo";
 import {
   PhoneIcon,
   ShieldIcon,
@@ -38,16 +39,7 @@ function Hero() {
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
-          src={`https://www.youtube-nocookie.com/embed/${site.heroYouTubeId}?autoplay=1&mute=1&loop=1&playlist=${site.heroYouTubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
-          title="Mountain Movers moving a home"
-          tabIndex={-1}
-          aria-hidden="true"
-          allow="autoplay; encrypted-media"
-        />
-      </div>
+      <HeroVideo />
       {/* Bottom-anchored scrim keeps the top of the video clear — important on mobile. */}
       <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-forest-950 via-forest-950/60 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-transparent to-transparent" />
