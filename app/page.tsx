@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site, telHref } from "./site";
 import { Container, SectionHeading, Button } from "./components/ui";
 import { GoogleReviews } from "./components/GoogleReviews";
@@ -8,6 +9,7 @@ import {
   MapPinIcon,
   TruckIcon,
   CheckIcon,
+  ArrowIcon,
 } from "./components/icons";
 
 export default function Home() {
@@ -51,12 +53,12 @@ function Hero() {
           Family-owned · Based in {site.base}
         </p>
 
-        <h1 className="font-display max-w-4xl text-4xl font-bold uppercase leading-[0.92] tracking-tight text-shadow-hero sm:text-6xl lg:text-7xl">
+        <h1 className="font-display max-w-2xl text-3xl font-bold uppercase leading-[0.95] tracking-tight text-shadow-hero sm:text-4xl lg:text-5xl">
           We move your home,
           <span className="text-action"> the safe way.</span>
         </h1>
 
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-forest-50 text-shadow-hero sm:mt-6 sm:text-lg">
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-forest-50 text-shadow-hero sm:text-base">
           {site.tagline} Licensed, bonded, and insured transport, grading, and
           setup across six states.
         </p>
@@ -122,16 +124,19 @@ function Services() {
     {
       icon: TruckIcon,
       title: "Mobile Home Moving",
+      href: "/process#moving",
       body: "Single-wides, double-wides, and modular sections — disconnected, hauled, and delivered through mountains, valleys, and creeks.",
     },
     {
       icon: ShieldIcon,
       title: "Site Prep & Grading",
+      href: "/process#siteprep",
       body: "Code-required grading, footers, drainage, and french drains so your home passes inspection and power can be installed.",
     },
     {
       icon: CheckIcon,
       title: "Setup & Inspection",
+      href: "/process#setup",
       body: "Blocking, leveling, anchoring, and tie-downs — set up to your state's code and ready for the inspector.",
     },
   ];
@@ -145,18 +150,23 @@ function Services() {
           subtitle="From grading the pad to setting the home level and anchored, you don't have to juggle three contractors and hope they get it right."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map(({ icon: Icon, title, body }) => (
-            <div
+          {services.map(({ icon: Icon, title, href, body }) => (
+            <Link
               key={title}
-              className="group relative overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm ring-1 ring-black/[0.03] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-forest-600/20"
+              href={href}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm ring-1 ring-black/[0.03] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-forest-600/20"
             >
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-forest-600 to-action opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-forest-600 to-forest-800 text-white shadow-md shadow-forest-900/20">
                 <Icon className="h-7 w-7" />
               </div>
               <h3 className="mt-5 text-lg font-bold text-stone-900">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">{body}</p>
-            </div>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-600">{body}</p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-forest-700">
+                Learn more
+                <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </Link>
           ))}
         </div>
       </Container>
