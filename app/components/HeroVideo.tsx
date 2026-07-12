@@ -1,58 +1,93 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { site } from "../site";
 
-// The source clip has a branded intro (~0-12s) and an iMovie-style credits
-// outro (~58s+). Loop only the moving footage in between — no player controls.
-const LOOP_START = 14;
-const LOOP_END = 46;
+// Minimal typings for the YouTube IFrame API we use.
+interface YTPlayer {
+  mute(): void;
+  playVideo(): void;
+  seekTo(seconds: number, allowSeekAhead?: boolean): void;
+  getIframe(): HTMLIFrameElement;
+}
+interface YTEvent {
+  target: YTPlayer;
+  data?: number;
+}
+interface YTNamespace {
+  Player: new (el: HTMLElement, opts: unknown) => YTPlayer;
+}
+declare global {
+  interface Window {
+    YT?: YTNamespace;
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
+
+// Sizes the iframe to cover the hero at 16:9 without distortion.
+const COVER =
+  "pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2";
 
 export function HeroVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
+  const mountRef = useRef<HTMLDivElement>(null);
+  const builtRef = useRef(false);
 
   useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
+    function build() {
+      if (builtRef.current || !mountRef.current || !window.YT?.Player) return;
+      builtRef.current = true;
+      new window.YT.Player(mountRef.current, {
+        host: "https://www.youtube-nocookie.com",
+        videoId: site.heroYouTubeId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          iv_load_policy: 3,
+        },
+        events: {
+          onReady: (e: YTEvent) => {
+            e.target.mute();
+            e.target.playVideo();
+            e.target.getIframe().className = COVER;
+          },
+          onStateChange: (e: YTEvent) => {
+            // 0 = ENDED — loop by seeking to the start (no playlist controls).
+            if (e.data === 0) {
+              e.target.seekTo(0);
+              e.target.playVideo();
+            }
+          },
+        },
+      });
+    }
 
-    const toStart = () => {
-      try {
-        v.currentTime = LOOP_START;
-      } catch {
-        /* ignore */
+    if (window.YT?.Player) {
+      build();
+    } else {
+      const prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        prev?.();
+        build();
+      };
+      if (!document.getElementById("yt-iframe-api")) {
+        const script = document.createElement("script");
+        script.id = "yt-iframe-api";
+        script.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(script);
       }
-    };
-    const onTime = () => {
-      if (
-        v.currentTime >= LOOP_END ||
-        (v.duration && v.currentTime >= v.duration - 0.3)
-      ) {
-        toStart();
-      }
-    };
-
-    v.addEventListener("loadedmetadata", toStart);
-    v.addEventListener("timeupdate", onTime);
-    v.addEventListener("ended", toStart);
-    if (v.readyState >= 1) toStart();
-
-    return () => {
-      v.removeEventListener("loadedmetadata", toStart);
-      v.removeEventListener("timeupdate", onTime);
-      v.removeEventListener("ended", toStart);
-    };
+    }
   }, []);
 
   return (
-    <video
-      ref={ref}
-      className="absolute inset-0 h-full w-full object-cover"
-      autoPlay
-      muted
-      playsInline
-      poster="/photos/hero-cliff-sunset.jpg"
-      aria-hidden="true"
-    >
-      <source src="/hero.mp4" type="video/mp4" />
-    </video>
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      {/* Replaced by the API-controlled iframe on mount. */}
+      <div ref={mountRef} className={COVER} />
+    </div>
   );
 }
