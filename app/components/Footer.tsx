@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site, telHref, nav } from "../site";
+import { serviceAreas } from "../serviceAreas";
 import {
   PhoneIcon,
   MailIcon,
@@ -14,7 +15,7 @@ export function Footer() {
   return (
     <footer className="bg-forest-900 text-forest-100">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <span className="text-xl font-extrabold uppercase tracking-tight text-white">
               {site.name}
@@ -48,6 +49,24 @@ export function Footer() {
                 <li key={item.href}>
                   <Link href={item.href} className="hover:text-white">
                     {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+              Service Areas
+            </h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {serviceAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/service-area/${area.slug}`}
+                    className="hover:text-white"
+                  >
+                    {area.name}
                   </Link>
                 </li>
               ))}

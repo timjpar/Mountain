@@ -49,6 +49,7 @@ export const nav = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Moving & Setup", href: "/process" },
+  { label: "Grading", href: "/grading" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
