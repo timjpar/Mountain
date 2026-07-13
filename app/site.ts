@@ -21,7 +21,7 @@ export const site = {
     { label: "Tennessee", number: "423-616-2111" },
     { label: "North Carolina", number: "828-708-0812" },
   ],
-  email: "mikejpar@gmail.com",
+  email: "mountainmoversmobile@gmail.com",
   // NOTE: confirm which photo is Mike vs Luke and update if swapped.
   team: [
     { name: "Mike", role: "Owner & Operator", photo: "/photos/team-1.jpg" },
