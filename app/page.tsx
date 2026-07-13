@@ -47,7 +47,7 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-transparent to-transparent" />
       <div className="pointer-events-none absolute -left-24 bottom-1/3 h-80 w-80 rounded-full bg-action/20 blur-[120px]" />
 
-      <Container className="relative w-full pb-16 pt-28 sm:py-24">
+      <Container className="relative w-full pb-10 pt-24 sm:py-24">
         <p className="eyebrow-tab mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-xs text-forest-50 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-action" />
           Family-owned · Based in {site.base}
@@ -95,23 +95,25 @@ function Hero() {
 function TrustBar() {
   return (
     <section className="border-b border-stone-200/70 bg-cream">
-      <Container className="flex flex-wrap items-center justify-center gap-3 py-6">
+      <Container className="flex flex-col items-center gap-4 py-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-3">
         <span className="text-sm font-semibold uppercase tracking-wider text-stone-500">
           Fully credentialed
         </span>
-        {site.credentials.map((c) => (
-          <span
-            key={c}
-            className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm"
-          >
-            <ShieldIcon className="h-5 w-5 text-action" />
-            {c}
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          {site.credentials.map((c) => (
+            <span
+              key={c}
+              className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm"
+            >
+              <ShieldIcon className="h-5 w-5 text-action" />
+              {c}
+            </span>
+          ))}
+          <span className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm">
+            <MapPinIcon className="h-5 w-5 text-action" />
+            {site.base}
           </span>
-        ))}
-        <span className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm">
-          <MapPinIcon className="h-5 w-5 text-action" />
-          {site.base}
-        </span>
+        </div>
       </Container>
     </section>
   );
