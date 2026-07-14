@@ -43,7 +43,7 @@ export default function ProcessPage() {
       </section>
 
       {/* A — Site Prep & Grade Work */}
-      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/grade-gravel-pad.jpg" imageAlt="A graded gravel pad ready for a mobile home set">
+      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/grade-gravel-pad.jpg" imageAlt="A graded gravel pad ready for a mobile home set" moreHref="/process/site-prep" moreLabel="Read more about Site Prep">
         <p>
           We offer grading services, which are required by code in order to pass
           inspection. This is absolutely required to be able to get power
@@ -71,7 +71,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* B — Permits */}
-      <Step id="permits" letter="B" title="Permits" image="/photos/lot-wooded.jpg" imageAlt="A wooded lot being prepared for a home" reverse>
+      <Step id="permits" letter="B" title="Permits" image="/photos/lot-wooded.jpg" imageAlt="A wooded lot being prepared for a home" reverse moreHref="/process/permits" moreLabel="Read more about Permits">
         <p>
           We take care of the <strong>moving permits and setup inspections</strong>,
           but you, the homeowner, are required to get a building permit and check
@@ -88,7 +88,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* C — Used Home Inspection */}
-      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/used-home.jpg" imageAlt="A used single-wide home staged for inspection">
+      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/used-home.jpg" imageAlt="A used single-wide home staged for inspection" moreHref="/process/inspection" moreLabel="Read more about Inspection">
         <p>
           There are some things we look for to determine if a used home is safe and
           ready for transport:
@@ -106,7 +106,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* D — Moving the Home */}
-      <Step id="moving" letter="D" title="Moving the Home" image="/photos/equip-house-tug.jpg" imageAlt="A tracked house tug used to move mobile homes" reverse>
+      <Step id="moving" letter="D" title="Moving the Home" image="/photos/equip-house-tug.jpg" imageAlt="A tracked house tug used to move mobile homes" reverse moreHref="/process/moving" moreLabel="Read more about Moving">
         <p>
           If the home is determined safe for transport, we figure out exactly what
           equipment, manpower, trucks, and prep work the move requires. Often, tree
@@ -156,6 +156,11 @@ export default function ProcessPage() {
           <p className="mt-6 text-sm font-semibold text-stone-500">
             No other work is required to get the house inspected.
           </p>
+          <div className="mt-6">
+            <Button href="/process/setup" variant="secondary" withArrow>
+              Read more about Setup
+            </Button>
+          </div>
         </Container>
       </section>
 
@@ -284,6 +289,8 @@ function Step({
   image,
   imageAlt,
   reverse = false,
+  moreHref,
+  moreLabel,
   children,
 }: {
   id: string;
@@ -292,6 +299,8 @@ function Step({
   image: string;
   imageAlt: string;
   reverse?: boolean;
+  moreHref?: string;
+  moreLabel?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -308,6 +317,13 @@ function Step({
             <div className="mt-5 space-y-4 leading-relaxed text-stone-700">
               {children}
             </div>
+            {moreHref && (
+              <div className="mt-6">
+                <Button href={moreHref} variant="secondary" withArrow>
+                  {moreLabel}
+                </Button>
+              </div>
+            )}
           </div>
           <div className="overflow-hidden rounded-2xl shadow-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
