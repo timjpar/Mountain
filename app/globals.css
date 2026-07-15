@@ -20,7 +20,6 @@
 
 /* ---- Themes (the primary ramp + accent + warm neutrals) ---------------- */
 
-:root,
 [data-theme="pine"] {
   --c-50: #ecf3ee;  --c-100: #cfe2d6;
   --c-600: #2d6a4f; --c-700: #1f4d3a; --c-800: #163a2b; --c-900: #102b20; --c-950: #0a1d16;
@@ -28,6 +27,7 @@
   --c-cream: #f6f4ee; --c-sand: #efe9dd;
 }
 
+:root,
 [data-theme="steel"] {
   --c-50: #eef2f6;  --c-100: #d7e0e8;
   --c-600: #3d5a73; --c-700: #2b4257; --c-800: #1e3142; --c-900: #14222e; --c-950: #0b141c;
