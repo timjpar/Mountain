@@ -63,12 +63,17 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-forest-50 text-forest-700 transition-colors group-hover:bg-forest-700 group-hover:text-white">
                     <MailIcon className="h-5 w-5" />
                   </span>
-                  <span className="min-w-0">
+                  <span className="min-w-0 flex-1">
                     <span className="block text-xs font-semibold uppercase tracking-wider text-stone-500">
                       Email
                     </span>
-                    <span className="block break-all text-lg font-bold text-forest-800">
-                      {site.email}
+                    <span className="block" style={{ containerType: "inline-size" }}>
+                      <span
+                        className="block whitespace-nowrap font-bold text-forest-800"
+                        style={{ fontSize: "min(1.125rem, 5.5cqi)" }}
+                      >
+                        {site.email}
+                      </span>
                     </span>
                   </span>
                 </a>

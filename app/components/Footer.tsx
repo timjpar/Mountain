@@ -93,8 +93,9 @@ export function Footer() {
               ))}
               <li className="flex items-start gap-2">
                 <MailIcon className="mt-0.5 h-4 w-4 flex-none text-action" />
-                <a href={`mailto:${site.email}`} className="break-all font-semibold text-white hover:text-action">
-                  {site.email}
+                <a href={`mailto:${site.email}`} className="break-words font-semibold text-white hover:text-action">
+                  {site.email.split("@")[0]}@<wbr />
+                  {site.email.split("@")[1]}
                 </a>
               </li>
               <li className="flex items-start gap-2">
