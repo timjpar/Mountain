@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Oswald } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -64,6 +65,7 @@ export default function RootLayout({
         <Footer />
         <ThemePicker />
       </body>
+      <GoogleAnalytics gaId="G-PET7WE735H" />
     </html>
   );
 }
