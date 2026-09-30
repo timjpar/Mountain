@@ -27,7 +27,7 @@ export const site = {
     { name: "Mike", role: "Owner & Operator", photo: "/photos/team-1.jpg" },
     { name: "Luke", role: "Owner & Operator", photo: "/photos/team-2.jpg" },
   ],
-  inspectionFee: 750,
+  inspectionFee: 500,
   // Google reviews. Paste the Featurable widget id below once created
   // (https://featurable.com → free signup → add this business → create widget).
   // While it's empty, the site shows real review excerpts + Google buttons.
