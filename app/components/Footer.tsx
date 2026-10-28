@@ -22,7 +22,7 @@ export function Footer() {
             </span>
             <p className="mt-4 max-w-sm text-sm leading-relaxed">{site.blurb}</p>
             <p className="mt-4 text-sm font-semibold text-white">
-              {site.credentials.join(" · ")} in multiple states
+              {site.credentials.join(" · ")} · Safety first, every move
             </p>
             <div className="mt-5 flex gap-3">
               <Social label="Facebook" href={site.social.facebook}>

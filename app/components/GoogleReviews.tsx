@@ -44,7 +44,7 @@ export function GoogleReviews() {
         <SectionHeading
           eyebrow="Reviews"
           title="What our customers say on Google"
-          subtitle="Real reviews from homeowners we've moved across the mountains."
+          subtitle="Real reviews from homeowners we've moved across East Tennessee and the Carolinas."
         />
 
         {widgetId ? (

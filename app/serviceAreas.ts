@@ -29,7 +29,7 @@ export const serviceAreas: ServiceArea[] = [
       "Morristown",
       "Gatlinburg",
     ],
-    image: "/photos/move-mountain-road.jpg",
+    image: "/photos/stock-smokies-valley.jpg",
   },
   {
     slug: "north-carolina",
@@ -37,7 +37,7 @@ export const serviceAreas: ServiceArea[] = [
     tagline:
       "A second home base for our crew — moving and setting homes across Western North Carolina.",
     intro:
-      "Just over the mountains from Newport, Western North Carolina is one of our busiest service areas. We handle the permits, the grade work, and the set — through the tight, winding roads the region is known for.",
+      "Just over the mountains from Newport, Western North Carolina is one of our busiest service areas. We handle the permits, route planning, grade work, and the set — every move surveyed in advance and escorted on the road.",
     cities: [
       "Asheville",
       "Hendersonville",
@@ -46,7 +46,7 @@ export const serviceAreas: ServiceArea[] = [
       "Marion",
       "Sylva",
     ],
-    image: "/photos/g-hillside.jpg",
+    image: "/photos/stock-blue-ridge-dusk.jpg",
   },
   {
     slug: "virginia",
@@ -56,7 +56,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "We regularly travel into Southwest Virginia to move mobile and modular homes. Every county has its own rules — we know how to prep the site, pull the moving permits, and set the home so it passes inspection.",
     cities: ["Bristol", "Abingdon", "Wytheville", "Marion", "Galax"],
-    image: "/photos/winter-view.jpg",
+    image: "/photos/stock-va-farmland.jpg",
   },
   {
     slug: "georgia",
@@ -66,16 +66,7 @@ export const serviceAreas: ServiceArea[] = [
     intro:
       "From Blue Ridge to Dalton, we move homes across North Georgia and build the base they sit on — clearing, grading, drainage, and a compacted pad that won't settle later.",
     cities: ["Blue Ridge", "Blairsville", "Dalton", "Dahlonega", "Ellijay"],
-    image: "/photos/move-blue-sky.jpg",
-  },
-  {
-    slug: "kentucky",
-    name: "Kentucky",
-    tagline: "Moving and setting mobile homes across Southeastern Kentucky.",
-    intro:
-      "We reach into Southeastern Kentucky for moves and setups, bringing the right equipment for narrow roads and steep hollows — plus the grade work needed to pass inspection and get power turned on.",
-    cities: ["Middlesboro", "Corbin", "London", "Williamsburg", "Barbourville"],
-    image: "/photos/move-road-mountains.jpg",
+    image: "/photos/stock-green-valley.jpg",
   },
   {
     slug: "south-carolina",
@@ -83,11 +74,44 @@ export const serviceAreas: ServiceArea[] = [
     tagline:
       "Full-service mobile home moving and site prep across Upstate South Carolina.",
     intro:
-      "We serve the Upstate — Greenville, Spartanburg, and the surrounding counties — with transport, grading, driveways, and setup handled by one experienced crew.",
+      "We serve the Upstate — Greenville, Spartanburg, and the surrounding counties — with transport, grading, driveways, and setup managed from beginning to end by our experienced, safety-trained team.",
     cities: ["Greenville", "Spartanburg", "Greer", "Seneca", "Gaffney"],
-    image: "/photos/g-highway.jpg",
+    image: "/photos/stock-ridges-dusk.jpg",
   },
 ];
+
+// Approximate coordinates for the service-area map on the home page.
+// TODO: swap for a real list of towns where homes have been placed, once
+// the owners provide it — then relabel the map "Homes we've placed".
+export const cityCoords: Record<string, [lat: number, lng: number]> = {
+  "Tennessee/Knoxville": [35.96, -83.92],
+  "Tennessee/Chattanooga": [35.05, -85.31],
+  "Tennessee/Sevierville": [35.87, -83.56],
+  "Tennessee/Newport": [35.97, -83.19],
+  "Tennessee/Morristown": [36.21, -83.29],
+  "Tennessee/Gatlinburg": [35.71, -83.51],
+  "North Carolina/Asheville": [35.6, -82.55],
+  "North Carolina/Hendersonville": [35.32, -82.46],
+  "North Carolina/Boone": [36.22, -81.67],
+  "North Carolina/Waynesville": [35.49, -82.99],
+  "North Carolina/Marion": [35.68, -82.01],
+  "North Carolina/Sylva": [35.37, -83.23],
+  "Virginia/Bristol": [36.6, -82.19],
+  "Virginia/Abingdon": [36.71, -81.98],
+  "Virginia/Wytheville": [36.95, -81.08],
+  "Virginia/Marion": [36.83, -81.51],
+  "Virginia/Galax": [36.66, -80.92],
+  "Georgia/Blue Ridge": [34.86, -84.32],
+  "Georgia/Blairsville": [34.88, -83.96],
+  "Georgia/Dalton": [34.77, -84.97],
+  "Georgia/Dahlonega": [34.53, -83.98],
+  "Georgia/Ellijay": [34.69, -84.48],
+  "South Carolina/Greenville": [34.85, -82.4],
+  "South Carolina/Spartanburg": [34.95, -81.93],
+  "South Carolina/Greer": [34.94, -82.23],
+  "South Carolina/Seneca": [34.69, -82.95],
+  "South Carolina/Gaffney": [35.07, -81.65],
+};
 
 export const serviceAreaBySlug = (slug: string) =>
   serviceAreas.find((a) => a.slug === slug);

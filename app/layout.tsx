@@ -20,13 +20,14 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mountainmoversmobilehomes.com"),
   title: {
     default:
-      "Mountain Movers LLC | Mobile Home Moving in TN, NC, VA, GA, KY & SC",
+      "Mountain Movers LLC | Mobile Home Moving in TN, NC, VA, GA & SC",
     template: "%s | Mountain Movers LLC",
   },
   description:
-    "Family-owned mobile home moving and setup based in Newport, Tennessee. Licensed, bonded, and insured across six states. We move, grade, and set single and double-wide homes through any terrain.",
+    "Family-owned mobile home moving and setup based in Newport, Tennessee. Licensed, bonded, and insured, with permitted, escorted moves and a safety-first process. We move, grade, and set single and double-wide homes.",
   keywords: [
     "mobile home moving",
     "manufactured home transport",
@@ -37,7 +38,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mountain Movers LLC",
     description:
-      "Family-owned, licensed, bonded & insured mobile home moving and setup across Tennessee, North Carolina, Virginia, Georgia, Kentucky, and South Carolina.",
+      "Family-owned, licensed, bonded & insured mobile home moving and setup across Tennessee, North Carolina, Virginia, Georgia, and South Carolina.",
+    images: [{ url: "/photos/hero-volvo-porch.jpg", width: 2000, height: 911 }],
     type: "website",
   },
 };

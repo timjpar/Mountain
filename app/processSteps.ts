@@ -27,7 +27,7 @@ export const processSteps: ProcessStep[] = [
     title: "Site Prep & Grade Work",
     tagline:
       "Grading and site prep required by code to pass inspection and get power to your home.",
-    image: "/photos/grade-gravel-pad.jpg",
+    image: "/photos/stock-site-prep.jpg",
     intro:
       "We offer grading services, which are required by code in order to pass inspection. This is absolutely required to be able to get power installed to your home.",
     content: [
@@ -53,7 +53,7 @@ export const processSteps: ProcessStep[] = [
     title: "Permits",
     tagline:
       "We handle the moving permits and setup inspections — here's what's on you as the homeowner.",
-    image: "/photos/lot-wooded.jpg",
+    image: "/photos/stock-blueprints.jpg",
     intro:
       "We take care of the moving permits and setup inspections, but you, the homeowner, are required to get a building permit and check with the county about where you're allowed to place the home and whether there are special rules for your lot.",
     content: [
@@ -70,7 +70,7 @@ export const processSteps: ProcessStep[] = [
     title: "Used Home Inspection & Prep",
     tagline:
       "What we look for to determine whether a used home is safe and ready for transport.",
-    image: "/photos/used-home.jpg",
+    image: "/photos/stock-checklist.jpg",
     intro:
       "There are some things we look for to determine if a used home is safe and ready for transport:",
     content: [
@@ -94,10 +94,20 @@ export const processSteps: ProcessStep[] = [
     title: "Moving the Home",
     tagline:
       "The right equipment, manpower, and prep work to move your home safely.",
-    image: "/photos/equip-house-tug.jpg",
+    image: "/photos/move-cabin-paved.jpg",
     intro:
-      "If the home is determined safe for transport, we figure out exactly what equipment, manpower, trucks, and prep work the move requires. Often, tree work has to be done to safely maneuver the home without damage.",
+      "If the home is determined safe for transport, we figure out exactly what equipment, manpower, trucks, and prep work the move requires. Every route is surveyed in advance, and any tree work is done before move day so the home travels clear of obstacles.",
     content: [
+      {
+        kind: "checklist",
+        items: [
+          "State oversize permits pulled for the exact route",
+          "Escort / pilot vehicles with oversize signage and lights",
+          "Red flags and amber beacons marking the full width of the load",
+          "Crew in hi-vis vests, hard hats, gloves, and eye protection",
+          "Flaggers, cones, and signs whenever traffic is stopped or directed",
+        ],
+      },
       { kind: "p", text: "We bring the right machine for the job:" },
       {
         kind: "equipment",
@@ -112,7 +122,7 @@ export const processSteps: ProcessStep[] = [
     title: "Setup & Inspection Checklist",
     tagline:
       "Setting the home level, anchored, and ready for the inspector — plus the full setup checklist.",
-    image: "/photos/move-mountain-road.jpg",
+    image: "/photos/hero-volvo-porch.jpg",
     intro:
       "The basic move and setup includes setting the house on block, leveling the piers, and anchoring the home. On a double-wide, it is bolted together and the roof dried in — nothing else. Any other work is not included in the basic setup.",
     content: [

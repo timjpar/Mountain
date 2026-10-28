@@ -66,7 +66,7 @@ export default function GradingPage() {
         eyebrow="Grading & Site Prep"
         title="We've got you covered"
         subtitle="We handle every aspect of getting your property ready for construction or improvement — from raw land to a solid, build-ready base."
-        image="/photos/g-dozer.jpg"
+        image="/photos/stock-site-prep.jpg"
       />
 
       {/* Services grid */}
@@ -103,8 +103,8 @@ export default function GradingPage() {
             <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/g-skidsteer-set.jpg"
-                alt="Mountain Movers crew grading a site with heavy equipment"
+                src="/photos/equip-tug-lot.jpg"
+                alt="House tug staged on a level gravel lot, crew member in hi-vis"
                 className="aspect-[4/3] h-full w-full object-cover"
                 loading="lazy"
               />
@@ -118,7 +118,7 @@ export default function GradingPage() {
               />
               <ul className="mt-6 space-y-3">
                 {[
-                  "One crew for clearing, grading, and concrete — no juggling contractors.",
+                  "We manage clearing, grading, and concrete from start to finish — no juggling contractors.",
                   "Proper drainage and compaction so your base won't settle or shift.",
                   "The right machine for the job, from land clearing to finish grade.",
                 ].map((p) => (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site, telHref } from "../site";
 import { Container, SectionHeading, Button } from "../components/ui";
 import { ShieldIcon, MapPinIcon, CheckIcon, PhoneIcon } from "../components/icons";
@@ -16,7 +17,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="A family-owned name you can trust with your home"
-        image="/photos/setup-flowers.jpg"
+        image="/photos/stock-american-flag.jpg"
       />
 
       <section className="py-20">
@@ -31,9 +32,16 @@ export default function AboutPage() {
             </p>
             <p className="mt-5">
               We are <strong className="text-stone-900">licensed, bonded, and
-              insured</strong> in several states — not just Tennessee — so your
-              home and property are protected from the first disconnect to the
-              final tie-down.
+              insured</strong> in every state we serve, so your home and property
+              are protected from the first disconnect to the final tie-down.
+            </p>
+            <p className="mt-5">
+              Safety is our first priority on every job: permitted routes, escort
+              vehicles, flagged loads, and a crew in proper protective equipment.{" "}
+              <Link href="/safety" className="font-semibold text-forest-700 underline">
+                Read about our safety practices
+              </Link>
+              .
             </p>
           </div>
 
@@ -52,6 +60,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
         </Container>
       </section>
 

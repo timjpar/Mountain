@@ -4,5 +4,10 @@
   "buildCommand": "next build",
   "outputDirectory": "out",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/need-to-know", "destination": "/process", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true }
+  ]
 }

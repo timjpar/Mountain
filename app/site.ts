@@ -4,7 +4,7 @@ export const site = {
   name: "Mountain Movers LLC",
   shortName: "Mountain Movers",
   tagline:
-    "Moving your home safely through traffic, mountains, valleys, and creeks.",
+    "Permitted, escorted, and safety-first home moves — managed from start to finish.",
   base: "Newport, Tennessee",
   blurb:
     "A family-owned mobile home moving company based in Newport, Tennessee — often traveling as far as 200 miles. We know our business and everything it takes to get the job done safely.",
@@ -13,16 +13,17 @@ export const site = {
     "North Carolina",
     "Virginia",
     "Georgia",
-    "Kentucky",
     "South Carolina",
   ],
   credentials: ["Licensed", "Bonded", "Insured"],
+  // Real customer quotes only — first name + town. The home-page
+  // testimonials section stays hidden while this list is empty.
+  testimonials: [] as { quote: string; name: string; town: string }[],
   phones: [
     { label: "Tennessee", number: "423-616-2111" },
     { label: "North Carolina", number: "828-708-0812" },
   ],
   email: "mountainmoversmobile@gmail.com",
-  // NOTE: confirm which photo is Mike vs Luke and update if swapped.
   team: [
     { name: "Mike", role: "Owner & Operator", photo: "/photos/team-1.jpg" },
     { name: "Luke", role: "Owner & Operator", photo: "/photos/team-2.jpg" },
@@ -50,6 +51,7 @@ export const nav = [
   { label: "About Us", href: "/about" },
   { label: "Moving & Setup", href: "/process" },
   { label: "Grading", href: "/grading" },
+  { label: "Safety", href: "/safety" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];

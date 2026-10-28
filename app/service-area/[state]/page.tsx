@@ -83,7 +83,7 @@ export default async function ServiceAreaPage({
             <SectionHeading
               align="left"
               eyebrow={`Serving ${area.name}`}
-              title={`One crew for the whole move in ${area.name}`}
+              title={`Your whole move in ${area.name}, managed start to finish`}
               subtitle={area.intro}
             />
             <div>

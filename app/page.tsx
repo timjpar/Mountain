@@ -3,7 +3,7 @@ import { site, telHref } from "./site";
 import { stateSlug } from "./serviceAreas";
 import { Container, SectionHeading, Button } from "./components/ui";
 import { GoogleReviews } from "./components/GoogleReviews";
-import { HeroVideo } from "./components/HeroVideo";
+import { ServiceMap } from "./components/ServiceMap";
 import {
   PhoneIcon,
   ShieldIcon,
@@ -22,6 +22,7 @@ export default function Home() {
       <WhyUs />
       <ServiceArea />
       <ProcessTeaser />
+      <Testimonials />
       <GoogleReviews />
       <CallToAction />
     </>
@@ -30,19 +31,21 @@ export default function Home() {
 
 /* ----------------------------------------------------------------- Hero */
 
+const numberWords = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"];
+
 function Hero() {
   const primary = site.phones[0];
   return (
     <section className="relative isolate flex min-h-[88vh] items-end overflow-hidden bg-forest-950 text-white sm:items-center">
-      {/* Poster image shown until the video loads (and as a fallback). */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/photos/hero-cliff-sunset.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <HeroVideo />
+      {/* Phones get a tighter crop centered on the truck and its banner. */}
+      <picture>
+        <source media="(max-width: 639px)" srcSet="/photos/hero-volvo-porch-mobile.jpg" />
+        <img
+          src="/photos/hero-volvo-porch.jpg"
+          alt="Mountain Movers truck delivering a new home under oversize-load permit"
+          className="absolute inset-0 h-full w-full object-cover object-[30%_50%] sm:object-[60%_50%]"
+        />
+      </picture>
       {/* Bottom-anchored scrim keeps the top of the video clear — important on mobile. */}
       <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-forest-950 via-forest-950/60 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-transparent to-transparent" />
@@ -61,7 +64,7 @@ function Hero() {
 
         <p className="mt-4 max-w-md text-sm leading-relaxed text-forest-50 text-shadow-hero sm:text-base">
           {site.tagline} Licensed, bonded, and insured transport, grading, and
-          setup across six states.
+          setup across {numberWords[site.states.length] ?? site.states.length} states.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -76,9 +79,9 @@ function Hero() {
 
         <dl className="mt-12 hidden max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8 sm:grid">
           {[
-            { stat: "6", label: "States Served" },
-            { stat: "200mi", label: "Typical Reach" },
-            { stat: "100%", label: "Licensed & Insured" },
+            { stat: String(site.states.length), label: "States Served" },
+            { stat: "100%", label: "Permitted Moves" },
+            { stat: "Safety", label: "First, Every Move" },
           ].map((item) => (
             <div key={item.label}>
               <dt className="font-display text-4xl font-bold text-action">{item.stat}</dt>
@@ -110,6 +113,13 @@ function TrustBar() {
               {c}
             </span>
           ))}
+          <Link
+            href="/safety"
+            className="inline-flex items-center gap-2 rounded-full border border-forest-700 bg-forest-700 px-4 py-2 text-sm font-bold text-white shadow-sm transition-colors hover:bg-forest-800"
+          >
+            <CheckIcon className="h-5 w-5 text-action" />
+            Safety First
+          </Link>
           <span className="inline-flex items-center gap-2 rounded-full border border-forest-100 bg-white px-4 py-2 text-sm font-bold text-forest-800 shadow-sm">
             <MapPinIcon className="h-5 w-5 text-action" />
             {site.base}
@@ -128,7 +138,7 @@ function Services() {
       icon: TruckIcon,
       title: "Mobile Home Moving",
       href: "/process#moving",
-      body: "Single-wides, double-wides, and modular sections — disconnected, hauled, and delivered through mountains, valleys, and creeks.",
+      body: "Single-wides, double-wides, and modular sections — disconnected, permitted, escorted, and delivered safely to your site.",
     },
     {
       icon: ShieldIcon,
@@ -149,8 +159,8 @@ function Services() {
       <Container>
         <SectionHeading
           eyebrow="What we do"
-          title="One crew, the whole job"
-          subtitle="From grading the pad to setting the home level and anchored, you don't have to juggle three contractors and hope they get it right."
+          title="We manage the entire process"
+          subtitle="From grading the pad to setting the home level and anchored, we're by your side every step of the way — no juggling three contractors."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {services.map(({ icon: Icon, title, href, body }) => (
@@ -181,10 +191,11 @@ function Services() {
 
 function WhyUs() {
   const points = [
-    "We know the equipment, permits, and prep it takes to move safely.",
-    "Licensed, bonded, and insured in several states — not just Tennessee.",
-    "Family-owned: you deal with the owners, not a call center.",
-    "We handle moving permits and setup inspections for you.",
+    "Every route surveyed and permitted before move day.",
+    "Escort vehicles, oversize signage, and flags marking the full load width.",
+    "Crews in hi-vis vests, hard hats, gloves, and eye protection.",
+    "Equipment inspected and maintained before every job.",
+    "Licensed, bonded, and insured — and family-owned, so you deal with the owners.",
   ];
   return (
     <section className="bg-white py-20">
@@ -194,8 +205,8 @@ function WhyUs() {
             <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/hero-cliff-sunset.jpg"
-                alt="Mountain Movers maneuvering a home along a mountain road at sunset"
+                src="/photos/move-cabin-paved.jpg"
+                alt="Oversize-load truck with amber beacons and width flags hauling a cabin on a paved road"
                 className="aspect-[4/3] h-full w-full object-cover"
                 loading="lazy"
               />
@@ -212,8 +223,8 @@ function WhyUs() {
             <SectionHeading
               align="left"
               eyebrow="Why Mountain Movers"
-              title="The tools to get the job done"
-              subtitle="Moving a home through this country is dangerous, technical work. We have the equipment and the experience to do it right."
+              title="Safety first, every move"
+              subtitle="Safety is our first priority on every job. We plan each move, follow every permit, and bring the right equipment and a trained crew to do it right."
             />
             <ul className="mt-6 space-y-3">
               {points.map((p) => (
@@ -223,8 +234,11 @@ function WhyUs() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8">
-              <Button href="/about" variant="secondary" withArrow>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/safety" variant="secondary" withArrow>
+                Our safety practices
+              </Button>
+              <Button href="/about" variant="secondary">
                 Meet the team
               </Button>
             </div>
@@ -243,8 +257,8 @@ function ServiceArea() {
       <Container>
         <SectionHeading
           eyebrow="Service area"
-          title="Six states, one trusted crew"
-          subtitle="Based in Newport, Tennessee and often traveling as far as 200 miles to get your home where it needs to go."
+          title="Where we work"
+          subtitle="Based in Newport, Tennessee, serving communities across five states within about 200 miles."
         />
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {site.states.map((state) => (
@@ -259,6 +273,34 @@ function ServiceArea() {
             </Link>
           ))}
         </div>
+        <ServiceMap className="mt-10" />
+      </Container>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------- Testimonials */
+
+// Hidden until real customer quotes are added to site.testimonials.
+function Testimonials() {
+  if (site.testimonials.length === 0) return null;
+  return (
+    <section className="bg-white py-20">
+      <Container>
+        <SectionHeading eyebrow="Testimonials" title="What our customers say" />
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {site.testimonials.map((t) => (
+            <figure
+              key={t.name + t.town}
+              className="flex flex-col rounded-2xl border border-stone-200/80 bg-cream p-7 shadow-sm"
+            >
+              <blockquote className="flex-1 text-stone-700">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption className="mt-5 text-sm font-bold text-forest-800">
+                {t.name} · <span className="font-semibold text-stone-500">{t.town}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </Container>
     </section>
   );
@@ -271,7 +313,7 @@ function ProcessTeaser() {
     { n: "A", t: "Site Prep & Grading", d: "Drainage, footers, and a level pad that passes code." },
     { n: "B", t: "Permits", d: "We handle moving permits and setup inspections." },
     { n: "C", t: "Inspection & Prep", d: "We make sure the home is safe to transport." },
-    { n: "D", t: "Moving the Home", d: "The right trucks, equipment, and tree work to move it." },
+    { n: "D", t: "Moving the Home", d: "Permitted, escorted, and flagged for the full load width." },
     { n: "E", t: "Setup & Tie-Down", d: "Set on block, leveled, anchored, and ready for inspection." },
   ];
   return (
@@ -281,7 +323,7 @@ function ProcessTeaser() {
           dark
           eyebrow="How it works"
           title="Moving a home is not like moving a truck"
-          subtitle="It takes the right equipment, the right permits, and crews who know these mountains. Here's the full process."
+          subtitle="It takes the right equipment, the right permits, and experienced, safety-trained crews. Here's the full process."
         />
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((s) => (
@@ -309,7 +351,7 @@ function CallToAction() {
     <section className="relative overflow-hidden bg-forest-800">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/photos/move-road-mountains.jpg"
+        src="/photos/stock-smokies-valley.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-20"

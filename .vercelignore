@@ -1,0 +1,8 @@
+# Pulled assets from the insurance-readiness pass — never upload.
+_removed-assets
+
+node_modules
+.next
+out
+*.pem
+.DS_Store

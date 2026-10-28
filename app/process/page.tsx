@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, SectionHeading, Button } from "../components/ui";
 import { CheckIcon } from "../components/icons";
 import { PageHero } from "../components/PageHero";
@@ -18,7 +19,7 @@ export default function ProcessPage() {
         eyebrow="Moving & Setup"
         title="Everything it takes to move and set your home"
         subtitle="Every state has different rules, but the work is the same: prep the site, get the permits, move the home safely, and set it level, anchored, and ready for inspection."
-        image="/photos/move-mountain-road.jpg"
+        image="/photos/hero-volvo-porch.jpg"
       />
 
       {/* Step nav */}
@@ -43,7 +44,7 @@ export default function ProcessPage() {
       </section>
 
       {/* A — Site Prep & Grade Work */}
-      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/grade-gravel-pad.jpg" imageAlt="A graded gravel pad ready for a mobile home set" moreHref="/process/site-prep" moreLabel="Read more about Site Prep">
+      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/stock-site-prep.jpg" imageAlt="Site being cleared and graded, with grade stakes set" moreHref="/process/site-prep" moreLabel="Read more about Site Prep">
         <p>
           We offer grading services, which are required by code in order to pass
           inspection. This is absolutely required to be able to get power
@@ -71,7 +72,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* B — Permits */}
-      <Step id="permits" letter="B" title="Permits" image="/photos/lot-wooded.jpg" imageAlt="A wooded lot being prepared for a home" reverse moreHref="/process/permits" moreLabel="Read more about Permits">
+      <Step id="permits" letter="B" title="Permits" image="/photos/stock-blueprints.jpg" imageAlt="Site plans and permit drawings" reverse moreHref="/process/permits" moreLabel="Read more about Permits">
         <p>
           We take care of the <strong>moving permits and setup inspections</strong>,
           but you, the homeowner, are required to get a building permit and check
@@ -88,7 +89,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* C — Used Home Inspection */}
-      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/used-home.jpg" imageAlt="A used single-wide home staged for inspection" moreHref="/process/inspection" moreLabel="Read more about Inspection">
+      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/stock-checklist.jpg" imageAlt="Inspection checklist being filled out" moreHref="/process/inspection" moreLabel="Read more about Inspection">
         <p>
           There are some things we look for to determine if a used home is safe and
           ready for transport:
@@ -106,11 +107,18 @@ export default function ProcessPage() {
       </Step>
 
       {/* D — Moving the Home */}
-      <Step id="moving" letter="D" title="Moving the Home" image="/photos/equip-house-tug.jpg" imageAlt="A tracked house tug used to move mobile homes" reverse moreHref="/process/moving" moreLabel="Read more about Moving">
+      <Step id="moving" letter="D" title="Moving the Home" image="/photos/move-cabin-paved.jpg" imageAlt="Oversize load with amber beacons and width flags on a paved road" reverse moreHref="/process/moving" moreLabel="Read more about Moving">
         <p>
           If the home is determined safe for transport, we figure out exactly what
-          equipment, manpower, trucks, and prep work the move requires. Often, tree
-          work has to be done to safely maneuver the home without damage.
+          equipment, manpower, trucks, and prep work the move requires. Every route
+          is surveyed in advance, and any tree work is done before move day so the
+          home travels clear of obstacles.
+        </p>
+        <p>
+          On the road, every move runs with state oversize permits, escort vehicles,
+          and red flags and beacons marking the full width of the load. Our crew
+          wears hi-vis vests, hard hats, gloves, and eye protection, and uses
+          flaggers and cones whenever traffic is stopped. <Link href="/safety" className="font-semibold text-forest-700 underline">See our safety practices</Link>.
         </p>
         <p>We bring the right machine for the job:</p>
         <EquipmentChips items={["House Tug", "Platypus", "Jadde", "Toter with 6-way hitch"]} />
@@ -269,8 +277,8 @@ const priceUp = [
   "Over-height, raised roof, or modular home",
   "Rocky soil",
   "Off-level site",
-  "Steep hills",
-  "Narrow roads",
+  "Site grade and access",
+  "Road width and route restrictions",
   "Remodeled home with added weight",
 ];
 
