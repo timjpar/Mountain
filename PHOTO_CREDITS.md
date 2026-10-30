@@ -2,7 +2,7 @@
 
 ## Own photos (Mountain Movers LLC)
 - `hero-volvo-porch.jpg`, `move-cabin-paved.jpg`, `move-tug-blue-home.jpg`
-- `equip-tug-lot.jpg`, `equip-lowboy-tug.jpg`
+- `equip-lowboy-tug.jpg`
 - `crew-setup-piers.jpg`, `crew-ground-check.jpg`, `crew-door-ppe.jpg`, `crew-blocks-truck.jpg` (plus `-wide` 4:3 crops)
 - `video/flag-wave.mp4` and its still, `flag-wave-poster.jpg`
 - `team-1.jpg`, `team-2.jpg` (owners), `logo.png`
@@ -24,3 +24,5 @@ homes or crews Mountain Movers moved.
 
 The flag, traffic-cone and checklist stock photos were replaced by the owners'
 own footage and job-site photos (Oct 2026) and moved to `_removed-assets/photos/`.
+`equip-tug-lot.jpg` (house tug in front of an unfinished plywood module) was
+pulled from the Gallery at the same time and moved there too.

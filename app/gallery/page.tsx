@@ -18,7 +18,6 @@ const photos: { src: string; alt: string }[] = [
   { src: "/photos/crew-ground-check.jpg", alt: "Two crew members in hard hats and hi-vis vests checking the ground along a home" },
   { src: "/photos/equip-lowboy-tug.jpg", alt: "Oversize-load truck with amber beacons hauling a house tug on a lowboy trailer" },
   { src: "/photos/crew-blocks-truck.jpg", alt: "Crew member in a hard hat, hi-vis vest, and work gloves carrying wood blocking past a service truck" },
-  { src: "/photos/equip-tug-lot.jpg", alt: "House tug staged on a level gravel lot, crew member in hi-vis" },
 ];
 
 export default function GalleryPage() {
