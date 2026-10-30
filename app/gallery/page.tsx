@@ -11,7 +11,13 @@ export const metadata: Metadata = {
 // Our own photos only — no stock images in the gallery.
 const photos: { src: string; alt: string }[] = [
   { src: "/photos/hero-volvo-porch.jpg", alt: "Mountain Movers truck delivering a new home with porch under oversize-load permit" },
+  { src: "/photos/crew-setup-piers.jpg", alt: "Crew in hard hats and hi-vis vests carrying block to set a home on piers" },
+  { src: "/photos/move-tug-blue-home.jpg", alt: "House tug moving a new blue home along a paved road" },
+  { src: "/photos/crew-door-ppe.jpg", alt: "Crew member in a hard hat, glasses, work gloves, and hi-vis vest working on a home's storm door" },
   { src: "/photos/move-cabin-paved.jpg", alt: "Oversize load with amber beacons and width flags on a paved road" },
+  { src: "/photos/crew-ground-check.jpg", alt: "Two crew members in hard hats and hi-vis vests checking the ground along a home" },
+  { src: "/photos/equip-lowboy-tug.jpg", alt: "Oversize-load truck with amber beacons hauling a house tug on a lowboy trailer" },
+  { src: "/photos/crew-blocks-truck.jpg", alt: "Crew member in a hard hat, hi-vis vest, and work gloves carrying wood blocking past a service truck" },
   { src: "/photos/equip-tug-lot.jpg", alt: "House tug staged on a level gravel lot, crew member in hi-vis" },
 ];
 

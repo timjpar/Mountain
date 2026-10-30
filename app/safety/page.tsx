@@ -69,6 +69,30 @@ const practices = [
   },
 ];
 
+// Our own job-site photos — every crew member shown is in a hard hat and vest.
+const crewPhotos = [
+  {
+    src: "/photos/crew-setup-piers.jpg",
+    alt: "Crew in hard hats and hi-vis vests carrying block to set a home on piers",
+    caption: "Carrying block to set a home on piers",
+  },
+  {
+    src: "/photos/crew-ground-check.jpg",
+    alt: "Two crew members in hard hats and hi-vis vests checking the ground along a home",
+    caption: "Checking the ground along the home",
+  },
+  {
+    src: "/photos/crew-door-ppe.jpg",
+    alt: "Crew member in a hard hat, glasses, work gloves, and hi-vis vest working on a home's storm door",
+    caption: "Hard hat, gloves, and vest for door work",
+  },
+  {
+    src: "/photos/crew-blocks-truck.jpg",
+    alt: "Crew member in a hard hat, hi-vis vest, and work gloves carrying wood blocking past a service truck",
+    caption: "Carrying blocking from the service truck",
+  },
+];
+
 export default function SafetyPage() {
   const primary = site.phones[0];
   return (
@@ -77,7 +101,7 @@ export default function SafetyPage() {
         eyebrow="Safety"
         title="Safety is our first priority"
         subtitle="Every move is planned, permitted, escorted, and staffed by a crew in proper protective equipment, so your home, our team, and everyone on the road gets where they're going safely."
-        image="/photos/stock-traffic-cone.jpg"
+        image="/photos/crew-door-ppe-wide.jpg"
       />
 
       <section className="bg-cream bg-topo py-20">
@@ -118,13 +142,53 @@ export default function SafetyPage() {
 
       <section className="bg-white py-20">
         <Container>
+          <SectionHeading
+            eyebrow="On the job"
+            title="Hard hats and hi-vis on every crew"
+            subtitle="Photos from our own job sites, not stock images."
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {crewPhotos.map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="aspect-[3/4] w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="p-4 text-sm font-semibold text-forest-800">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-cream py-20">
+        <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+            <div className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              {/* Real flag footage; the still frame shows for reduced-motion visitors. */}
+              <video
+                src="/video/flag-wave.mp4"
+                poster="/photos/flag-wave-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="American flag flying against a cloudy sky"
+                className="aspect-[4/5] w-full object-cover object-[50%_30%] motion-reduce:hidden"
+              />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/stock-american-flag.jpg"
-                alt="American flag flying on a pole under a blue sky"
-                className="aspect-[4/3] h-full w-full object-cover"
+                src="/photos/flag-wave-poster.jpg"
+                alt="American flag flying against a cloudy sky"
+                className="hidden aspect-[4/5] w-full object-cover object-[50%_30%] motion-reduce:block"
                 loading="lazy"
               />
             </div>

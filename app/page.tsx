@@ -205,8 +205,8 @@ function WhyUs() {
             <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/move-cabin-paved.jpg"
-                alt="Oversize-load truck with amber beacons and width flags hauling a cabin on a paved road"
+                src="/photos/crew-setup-piers-wide.jpg"
+                alt="Mountain Movers crew in hard hats and hi-vis vests carrying block to set a home on piers"
                 className="aspect-[4/3] h-full w-full object-cover"
                 loading="lazy"
               />

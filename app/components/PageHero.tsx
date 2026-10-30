@@ -5,21 +5,36 @@ export function PageHero({
   title,
   subtitle,
   image,
+  video,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
   image: string;
+  // Optional looping background video; `image` stays underneath as its
+  // poster and as the fallback for visitors who prefer reduced motion.
+  video?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-forest-900 text-white">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={image}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
-      />
+      <div aria-hidden="true" className={`absolute inset-0 ${video ? "opacity-60" : "opacity-30"}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt=""
+          className={`h-full w-full object-cover ${video ? "object-[50%_30%]" : ""}`}
+        />
+        {video && (
+          <video
+            src={video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover object-[50%_30%] motion-reduce:hidden"
+          />
+        )}
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-forest-900/85 to-forest-900/60" />
       <Container className="relative py-16 sm:py-20">
         {eyebrow && (

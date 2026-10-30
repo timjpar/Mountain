@@ -17,7 +17,8 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="A family-owned name you can trust with your home"
-        image="/photos/stock-american-flag.jpg"
+        image="/photos/flag-wave-poster.jpg"
+        video="/video/flag-wave.mp4"
       />
 
       <section className="py-20">

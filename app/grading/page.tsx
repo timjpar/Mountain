@@ -103,8 +103,8 @@ export default function GradingPage() {
             <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/photos/equip-tug-lot.jpg"
-                alt="House tug staged on a level gravel lot, crew member in hi-vis"
+                src="/photos/crew-ground-check-wide.jpg"
+                alt="Two crew members in hard hats and hi-vis vests checking the ground along a home"
                 className="aspect-[4/3] h-full w-full object-cover"
                 loading="lazy"
               />

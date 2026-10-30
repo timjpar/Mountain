@@ -27,7 +27,7 @@ export const processSteps: ProcessStep[] = [
     title: "Site Prep & Grade Work",
     tagline:
       "Grading and site prep required by code to pass inspection and get power to your home.",
-    image: "/photos/stock-site-prep.jpg",
+    image: "/photos/crew-ground-check-wide.jpg",
     intro:
       "We offer grading services, which are required by code in order to pass inspection. This is absolutely required to be able to get power installed to your home.",
     content: [
@@ -70,7 +70,7 @@ export const processSteps: ProcessStep[] = [
     title: "Used Home Inspection & Prep",
     tagline:
       "What we look for to determine whether a used home is safe and ready for transport.",
-    image: "/photos/stock-checklist.jpg",
+    image: "/photos/crew-door-ppe-wide.jpg",
     intro:
       "There are some things we look for to determine if a used home is safe and ready for transport:",
     content: [
@@ -122,7 +122,7 @@ export const processSteps: ProcessStep[] = [
     title: "Setup & Inspection Checklist",
     tagline:
       "Setting the home level, anchored, and ready for the inspector — plus the full setup checklist.",
-    image: "/photos/hero-volvo-porch.jpg",
+    image: "/photos/crew-setup-piers-wide.jpg",
     intro:
       "The basic move and setup includes setting the house on block, leveling the piers, and anchoring the home. On a double-wide, it is bolted together and the roof dried in — nothing else. Any other work is not included in the basic setup.",
     content: [

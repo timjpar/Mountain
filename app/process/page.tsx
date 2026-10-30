@@ -19,7 +19,7 @@ export default function ProcessPage() {
         eyebrow="Moving & Setup"
         title="Everything it takes to move and set your home"
         subtitle="Every state has different rules, but the work is the same: prep the site, get the permits, move the home safely, and set it level, anchored, and ready for inspection."
-        image="/photos/hero-volvo-porch.jpg"
+        image="/photos/move-tug-blue-home.jpg"
       />
 
       {/* Step nav */}
@@ -44,7 +44,7 @@ export default function ProcessPage() {
       </section>
 
       {/* A — Site Prep & Grade Work */}
-      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/stock-site-prep.jpg" imageAlt="Site being cleared and graded, with grade stakes set" moreHref="/process/site-prep" moreLabel="Read more about Site Prep">
+      <Step id="siteprep" letter="A" title="Site Prep & Grade Work" image="/photos/crew-ground-check-wide.jpg" imageAlt="Two crew members in hard hats and hi-vis vests checking the ground along a home" moreHref="/process/site-prep" moreLabel="Read more about Site Prep">
         <p>
           We offer grading services, which are required by code in order to pass
           inspection. This is absolutely required to be able to get power
@@ -89,7 +89,7 @@ export default function ProcessPage() {
       </Step>
 
       {/* C — Used Home Inspection */}
-      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/stock-checklist.jpg" imageAlt="Inspection checklist being filled out" moreHref="/process/inspection" moreLabel="Read more about Inspection">
+      <Step id="inspection" letter="C" title="Used Home Inspection & Prep" image="/photos/crew-door-ppe-wide.jpg" imageAlt="Crew member in a hard hat, glasses, work gloves, and hi-vis vest working on a home's storm door" moreHref="/process/inspection" moreLabel="Read more about Inspection">
         <p>
           There are some things we look for to determine if a used home is safe and
           ready for transport:
